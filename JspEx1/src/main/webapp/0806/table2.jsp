@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 
 <style>
-	table, th,  tr,  td{
+	table, th, tr, td{
 	 border : 1px solid black ;
 	 border-collapse: collapse;
 	 padding: 10px;
@@ -23,14 +23,17 @@
 
 </head>
 <body>
+	<div><button onclick="location.href='login.jsp'">로그아웃</button></div>
 	<%@include file="db.jsp"%>	
 	<%
 	ResultSet rs = null;
 	Statement stmt = null;
+	System.out.println(session.getAttribute("userID"));
 	
 	try{
 		stmt = conn.createStatement();
-		String querytext = "SELECT * FROM TBL_BOARD";
+		String querytext = 
+			"SELECT * FROM TBL_BOARD b inner join tbl_user u on b.userId=u.userid";
 		rs = stmt.executeQuery(querytext);
 	%>
 		<table>
@@ -51,7 +54,7 @@
 					<%= rs.getString("title") %>
 				</a>
 			</td>
-			<td> <%= rs.getString("userId") %></td>
+			<td> <%= rs.getString("name") %></td>
 			<td> <%= rs.getString("cnt") %></td>
 			<td> <%= rs.getString("cdatetime") %></td>
 		</tr>
@@ -62,7 +65,8 @@
 	</table>
 	<button onclick="location.href='insert.jsp'">글 쓰기</button>
 	<%
-	} catch(SQLException ex) {
+	} 
+	catch(SQLException ex) {
 		out.println("SQLException : " + ex.getMessage());
 	}
 	%>

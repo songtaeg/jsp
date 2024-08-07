@@ -10,13 +10,19 @@
 <title>Insert title here</title>
 
 <style>
-	table, th,  tr,  td{
+	table, th, tr, td{
 	 border : 1px solid black ;
 	 border-collapse: collapse;
 	 padding: 10px;
 	}
+	
+	.comm{
+		width: 330px;
+		height: 20px;
+		padding: 5px;
+		margin: 10px 0px;
+	}
 
-}
 	
 </style>
 
@@ -41,9 +47,35 @@
 				name="boardNo">
 			<div>제목: <%=rs.getString("title") %> </div>	
 			<div>내용: <%=rs.getString("contents") %> </div>
+			<hr>
+			<div>댓글: <input type="text" placeholder="댓글" name="comment" class="comm">
+				<button type="button" onclick="fnComment()">등록</button>
+			</div>	
+			<hr>
+		<% 		
+			String sessionID=(String)session.getAttribute("userID");
+			String sessionStatus=(String)session.getAttribute("status");
+			
+			if(rs.getString("userID").equals(sessionID) 
+					|| sessionStatus.equals("A")){
+		%>
 			<button type="submit">삭제</button>
-			<button type="button" onclick="fnUpdate()">수정</button>	
+			<button type="button" onclick="fnUpdate()">수정</button>
+		<% 
+			}
+		%>
+		
+			<%
+				querytext = "SELECT * FROM TBL_COMMENT WHERE BOARDNO = " + boardNo;
+				rs = stmt.executeQuery(querytext);
+				while(rs.next()){
+			%>
+				<div> <%= rs.getString("userId") %> : <%= rs.getString("comment") %> </div>
+			<%	
+			} 
+			%>			
 	<% 
+		
 			}else{
 				out.println("삭제된 게시물");
 			}
@@ -59,6 +91,12 @@
 	function fnUpdate() {
 		var form=document.board;
 		form.action="board-update.jsp";
+		form.submit();
+	}
+	
+	function fnComment() {
+		var form=document.board;
+		form.action="comment-update.jsp"
 		form.submit();
 	}
 </script>

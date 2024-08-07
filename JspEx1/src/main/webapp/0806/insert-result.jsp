@@ -12,16 +12,19 @@
  <%
  	String title =request.getParameter("title");
  	String content =request.getParameter("content");
+ 	String userID=(String) session.getAttribute("userID");
  	
  	ResultSet rs = null;
 	Statement stmt = null;
 	try{
 		stmt = conn.createStatement();
 		String querytext = "insert into tbl_board values"
-				+"("+"Null,'"+title+"','"+content+"',0,'user1','number',now(),now()"
+				+"("+"Null,'"+title+"','"+content+"',0,'"+userID+ "','number',now(),now()"
 				+")";
 		stmt.executeUpdate(querytext);
-		out.println("확인");
+		System.out.println("완료");
+		response.sendRedirect("table2.jsp");
+		//out.println("확인");
 		
 	}catch(SQLException e){
 		out.println("SQLException : " + e.getMessage());
