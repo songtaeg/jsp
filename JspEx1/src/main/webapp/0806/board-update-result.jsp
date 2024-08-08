@@ -17,7 +17,7 @@
 		try{
 			stmt = conn.createStatement();
 			String querytext = 
-				"update TBL_BOARD SET title='"+title+"',contents'"+contents+"' where boderNo='"+boardNo+"'";
+				"UPDATE TBL_BOARD SET title='"+title+"',contents='"+contents+"' where boardNo='"+boardNo+"'";
 			stmt.executeUpdate(querytext);
 			//System.out.println("수정 완료");
 			response.sendRedirect("table2.jsp");
