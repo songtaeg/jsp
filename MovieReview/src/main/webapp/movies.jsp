@@ -7,22 +7,34 @@
 <meta charset="UTF-8">
 <title>Movies List</title>
 <style>
-body{
-margin: 0;
-padding:20px;
-background-color: #f4f4f4;
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column; /* 세로 방향 레이아웃 설정 */
+    align-items: center;  /* 가로 방향 가운데 정렬 */
+    height: 100vh;  /* 전체 높이 */
+    margin: 0;
+    padding:20px;
 }
-
-table,th,tr,td{
+table{
  	border: 1px solid black;
  	border-collapse: collapse;
  	padding: 10px; 
+ 	background-color: white;
+}
+th,td{
+	border: 1px solid black;
+	padding: 10px; 
  	text-align:center;
+}
+h1{
+	margin-bottom: 20px;
+	text-align: center;
 }
 img{
 	width:150px;
 	height:150px;
-	border: 2px soild #ddd;
+	border: 1px solid gray;
 	border-radius: 8px;
 }
 </style>
@@ -38,6 +50,11 @@ img{
 				<th>감독</th>
 				<th>개봉일</th>
 				<th>장르</th>
+				<%
+					String id=(String)session.getAttribute("id");
+					boolean islogin=(id!=null); //id가 null이 아닌지 확인(id가 null이 아니면 true)
+				%>
+				<th>리뷰</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -65,6 +82,11 @@ img{
                 <td><%= director %></td>
                 <td><%= year %></td>
                 <td><%= genre %></td>
+                <td>
+                	<% if(islogin){ %>
+                		<a href="review.jsp?movieId=<%=movieId%>"><button>리뷰</button></a>
+                	<% } %>	
+                </td>
             </tr>
 			<%
 					}

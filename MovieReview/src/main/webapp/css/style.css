@@ -1,9 +1,9 @@
 body {
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    height: 100vh; /* 전체 높이 */
     margin: 0;
     padding:0;
 }
@@ -75,7 +75,7 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 header img {
@@ -96,6 +96,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #007bff;
+    font-size: 20px;
 }
 
 

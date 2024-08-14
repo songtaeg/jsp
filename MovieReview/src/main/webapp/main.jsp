@@ -14,12 +14,13 @@
         <nav>
             <ul>
                 <li><a href="movies.jsp">영화 목록</a></li>
-                <li><a href="review.jsp">리뷰</a></li>
+                <li><a href="review-list.jsp">리뷰 </a></li>
                 <% 
                 	String id=(String)session.getAttribute("id");
                 	if(id!=null){ //사용자가 로그인한 상태
                 %>
                 	<li><a href="logout.jsp">로그아웃</a></li>
+                	<li><span><%=id %>님</span></li>
                 <% 
                 	}else{
                 %>	
