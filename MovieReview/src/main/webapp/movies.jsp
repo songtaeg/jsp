@@ -40,12 +40,17 @@ img{
 </style>
 </head>
 <body>
+	<header>
+		<a href="main.jsp">
+         	<img src="img/home.png" alt="홈 버튼" style="width: 40px; height: 40px">
+         </a>
+    </header>
 	<h1>movie list</h1>
 	<table>
 		<thead>
 			<tr>
-				<th>id</th>
-				<th>title</th>
+				<th></th>
+				<th>제목</th>
 				<th>포스터</th>
 				<th>감독</th>
 				<th>개봉일</th>
@@ -75,19 +80,19 @@ img{
 	                    int year = rs.getInt("year");
 	                    String genre = rs.getString("genre");
 			%>
-			<tr>
-                <td><%= movieId %></td>
-                <td><%= title %></td>
-                <td><img src="<%= posterUrl %>" alt="Poster"></td>
-                <td><%= director %></td>
-                <td><%= year %></td>
-                <td><%= genre %></td>
-                <td>
-                	<% if(islogin){ %>
-                		<a href="review.jsp?movieId=<%=movieId%>"><button>리뷰</button></a>
-                	<% } %>	
-                </td>
-            </tr>
+					<tr>
+		                <td><%= movieId %></td>
+		                <td><%= title %></td>
+		                <td><img src="<%= posterUrl %>" alt="Poster"></td>
+		                <td><%= director %></td>
+		                <td><%= year %></td>
+		                <td><%= genre %></td>
+		                <td>
+		                	<% if(islogin){ %>
+		                		<a href="review.jsp?movieId=<%=movieId%>"><button>리뷰 쓰기</button></a>
+		                	<% } %>	
+		                </td>
+		            </tr>
 			<%
 					}
 				}catch(SQLException ex) {

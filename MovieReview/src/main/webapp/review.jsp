@@ -11,6 +11,7 @@
 	<h1>Write Reviews</h1>
 		<%
 			String movieIdParam =request.getParameter("movieId");
+		
 			if(movieIdParam==null || movieIdParam.isEmpty()){
 				out.println("유효하지 않는 영화 id입니다.");
 				return;
@@ -36,12 +37,13 @@
 			<input type="hidden" name="movieId" value="<%= movieId %>"> 
 			<input type="hidden" name="userId" value="<%= session.getAttribute("id") %>">
 			
-			<label>평점(1 to 5)</label><br>
-			<input type="number" id="rating" name="rating" min="1" max="5" step="0.1" required>
-			<button type="submit">등록하기</button>
+			<label>평점(1 to 5)</label>
+			<input type="number" id="rating" name="rating" min="1" max="5" step="0.1" required><br>
 			
 			<label>감상평</label><br>
-			<textarea name="review" id="review" cols="50" rows="5" placeholder="1000자 이내" required></textarea>
+			<textarea name="review" id="review" cols="50" rows="5" placeholder="1000자 이내" required></textarea><br>
+			
+			<button type="submit">등록하기</button>
 		</form>
 		<% 
 				} else {

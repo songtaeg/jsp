@@ -14,7 +14,7 @@
         <nav>
             <ul>
                 <li><a href="movies.jsp">영화 목록</a></li>
-                <li><a href="review-list.jsp">리뷰 </a></li>
+                <li><a href="review-list.jsp">리뷰 모음</a></li>
                 <% 
                 	String id=(String)session.getAttribute("id");
                 	if(id!=null){ //사용자가 로그인한 상태
@@ -38,10 +38,9 @@
         <p>영화 리뷰 웹사이트에 오신 것을 환영합니다!!</p>
 
         <section>
-		    <h2>영화 검색</h2>
+		    <h2>리뷰 작성</h2>
 		    <form action="movies.jsp">
-		        <input type="text" name="search" placeholder="영화 제목을 입력하세요...">
-		        <button type="submit">검색</button>
+		        <button type="submit">작성(로그인 필요)</button>
 		    </form>
         </section>
     </main>

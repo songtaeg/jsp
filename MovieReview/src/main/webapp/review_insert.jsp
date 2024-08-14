@@ -22,10 +22,22 @@
 	    	return;
 	    }
 	    
-	    ResultSet rs = null;
+		int movieId=Integer.parseInt(movieIdParam);
+		float rating=Float.parseFloat(ratingParam);
+		
 		Statement stmt = null;
-		
-		
+		try{
+		stmt=conn.createStatement();
+		String query = "INSERT INTO reviews(movie_id, user_id, review_text, rating) values('"
+				+movieId+"','"+userId+"','"+review+"','"+rating+"')";  		
+		stmt.executeUpdate(query);
+		}catch(SQLException ex) {
+			out.println("SQLException : " + ex.getMessage());
+		}
 	%>
 </body>
 </html>
+<script>
+	alert('등록되었습니다.');
+	window.location.href='movies.jsp';
+</script>
