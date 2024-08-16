@@ -8,7 +8,7 @@
 <title>Movies List</title>
 <style>
 body {
-    background-color: #f4f4f4;
+    background-color: AliceBlue;
     display: flex;
     flex-direction: column; /* 세로 방향 레이아웃 설정 */
     align-items: center;  /* 가로 방향 가운데 정렬 */
@@ -21,10 +21,11 @@ table{
  	border-collapse: collapse;
  	padding: 10px; 
  	background-color: white;
+ 	margin: 0 auto;
 }
 th,td{
 	border: 1px solid black;
-	padding: 10px; 
+	padding: 12px; 
  	text-align:center;
 }
 h1{
@@ -37,6 +38,7 @@ img{
 	border: 1px solid gray;
 	border-radius: 8px;
 }
+
 </style>
 </head>
 <body>
