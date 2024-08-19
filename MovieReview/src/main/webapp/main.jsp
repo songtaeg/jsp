@@ -20,6 +20,9 @@
 	body{
 		background-color:lightyellow; 
 	}
+	span{
+		font-size: 20px;
+	}
 </style>
 </head>
 <body>
@@ -90,13 +93,14 @@
 				}
 				%>	
         	</ul>
-        	
         </section>
+        
     </main>
 
     <footer>
-        <p>&copy; 2024 영화 리뷰 웹사이트. 모든 권리 보유.</p>
-        <p>연락처: support@example.com | 전화: 010-1234-1234</p>
+        <p>&copy; 2024 방구석 리뷰어. 모든 권리 보유.</p>
+        <p>연락처: support@naver.com | 전화: 010-1234-1234</p>
+        <p>인천광역시 남동구 경인로 456</p>
     </footer>
 </body>
 </html>

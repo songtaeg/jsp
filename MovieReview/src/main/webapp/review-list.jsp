@@ -37,12 +37,21 @@ th,td{
     </header>
 	<h1>Review List</h1>
 	
+	<form method="get" action="">
+        <label>정렬 기준:</label>
+        <select name="sort" id="sort" onchange="this.form.submit()">
+        	<option value="normal" <%= "normal".equals(request.getParameter("sort")) ? "selected" : "" %>>----</option>
+            <option value="asc" <%= "asc".equals(request.getParameter("sort")) ? "selected" : "" %> >평점 낮은순</option>
+            <option value="desc" <%= "desc".equals(request.getParameter("sort")) ? "selected" : "" %> >평점 높은순</option>
+        </select>
+    </form>
+	
 	<table>
 		<thead>
 			<tr>
 				<th>번호</th>
 				<th>영화</th>
-				<th>아이디</th>
+				<th>이름</th>
 				<th>감상평</th>
 				<th>평점</th>
 			</tr>
@@ -52,22 +61,38 @@ th,td{
 				ResultSet rs = null;
 				Statement stmt = null;
 				
+				String sortOrder=request.getParameter("sort");
+				if(sortOrder==null || sortOrder.isEmpty()){
+					sortOrder="normal"; //기본 정렬 순서
+ 				}
+				
 				try{
 					stmt = conn.createStatement();
-					String querytext ="SELECT review_id, m.title, user_id,review_text,rating FROM reviews r INNER JOIN movies m ON r.movie_id=m.id";
+					String querytext;
+					if("normal".equals(sortOrder)){
+						querytext="SELECT review_id, m.title, u.name, review_text, rating FROM reviews r "+
+								"INNER JOIN movies m ON r.movie_id=m.id "+
+								"join users u ON r.user_id=u.user_id "+
+								"order by review_id desc";
+					}else{
+						querytext="SELECT review_id, m.title, u.name, review_text, rating FROM reviews r "+
+								"INNER JOIN movies m ON r.movie_id=m.id "+
+								"join users u ON r.user_id=u.user_id "+
+								"order by rating "+(sortOrder.equals("asc")? "asc":"desc")+ ",review_id desc";
+					}
 					rs = stmt.executeQuery(querytext);
 					
 					while(rs.next()){
 						int id=rs.getInt("review_id");
 						String title = rs.getString("m.title");
-						String userId = rs.getString("user_id");
+						String name = rs.getString("u.name");
 						String review = rs.getString("review_text");
 						double rating = rs.getDouble("rating");
 			%>
 					<tr>
 						<td><%= id %></td>
 		                <td><%= title %></td>
-		                <td><%= userId %> </td>
+		                <td><%= name %> </td>
 		                <td><%= review %></td>
 		                <td><%= rating %></td>
 		            </tr>

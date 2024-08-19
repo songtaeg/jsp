@@ -26,7 +26,7 @@
    </div>     
    <div class="container">
        <h1>회원가입</h1>
-        <form action="register_result.jsp" method="get" name="register" onsubmit="return validateForm()">
+        <form action="register_result.jsp" method="get" name="register" onsubmit="return fnCheckForm()">
             <div>
             	아이디:<input type="text" name="userId" id="id" required>
             	<button type="button" onclick="fnCheck()">중복체크</button>
@@ -64,7 +64,7 @@ function fnCheck(){
         alert("아이디를 입력해 주세요.");
     }
 }        
-function validateForm() {
+function fnCheckForm() {
         var pwd = document.getElementById('pwd').value;
         var pwdConfirm = document.getElementById('pwdcheck').value;
        

@@ -44,10 +44,11 @@ button,input[type="submit"] {
     background-color: #007BFF;
     color: #fff;
     border: none;
-    padding: 0.7em;
+    padding: 0.5em;
     border-radius: 4px;
     font-size: 16px;
     width: 100%;
+    margin-bottom: 1em;
 }
 button:hover {
     background-color: #0056b3;

@@ -78,7 +78,7 @@
 		<a href="main.jsp">
          	<img src="img/home.png" alt="홈 버튼" style="width: 40px; height: 40px">
          </a>
-    </>
+    </div>
 	<h1>Write Reviews</h1>
 		<%
 			String movieIdParam =request.getParameter("movieId");

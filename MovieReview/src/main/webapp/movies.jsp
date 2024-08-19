@@ -42,11 +42,11 @@ img{
 </style>
 </head>
 <body>
-	<header>
+	<div>
 		<a href="main.jsp">
          	<img src="img/home.png" alt="홈 버튼" style="width: 40px; height: 40px">
          </a>
-    </header>
+    </div>
 	<h1>movie list</h1>
 	<table>
 		<thead>
@@ -85,7 +85,7 @@ img{
 					<tr>
 		                <td><%= movieId %></td>
 		                <td><%= title %></td>
-		                <td><img src="<%= posterUrl %>" alt="Poster"></td>
+		                <td><a href="movieDetail.jsp?movieId=<%=movieId%>"><img src="<%= posterUrl %>" alt="Poster"></a></td>
 		                <td><%= director %></td>
 		                <td><%= year %></td>
 		                <td><%= genre %></td>
