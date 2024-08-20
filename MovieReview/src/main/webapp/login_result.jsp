@@ -14,7 +14,7 @@
 		ResultSet rs = null;
 		Statement stmt = null;
 		
-		String queryText="";
+		//String queryText=null;
 		String errorMsg=null;
 
 		String id=request.getParameter("id");

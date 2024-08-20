@@ -8,11 +8,8 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-	header{
-	background-color: Lavender;
-	}
 	.title{
-		font-family: 'Nanum Pen script',serif;
+		font-family: 'Nanum Pen script',cursive;
 		color:brown;
 		font-size:40px;
 		font-weight: 400;
@@ -21,6 +18,7 @@
 		background-color:lightyellow; 
 	}
 	span{
+		color: black;
 		font-size: 20px;
 	}
 </style>
@@ -28,18 +26,18 @@
 <body>
 <%@include file="db.jsp"%>	
 	<header>
-        <h1 class="title">방구석 리뷰어</h1>
+        <h1 class="title">방구석 리뷰</h1>
         <img src="img/logo4.png" alt="로고">
         <nav>
             <ul>
                 <li><a href="movies.jsp">영화 목록</a></li>
                 <li><a href="review-list.jsp">리뷰 모음</a></li>
                 <% 
-                	String id=(String)session.getAttribute("id");
-                	if(id!=null){ //사용자가 로그인한 상태
+                	String id=(String)session.getAttribute("id"); //세션에서 사용자 id 가져오기
+                	if(id!=null){ //사용자가 로그인한 상태(null이 아닌 경우)
                 %>
                 	<li><a href="logout.jsp">로그아웃</a></li>
-                	<li><span><%=id %>님</span></li>
+                	<li><span><a href="profile.jsp"><%=id %>님</a></span></li>
                 <% 
                 	}else{
                 %>	
@@ -59,8 +57,9 @@
         <section>
 		    <h2>리뷰 작성</h2>
 		    <form action="movies.jsp">
-		        <button type="submit">작성(로그인 필요)</button>
+		        <input type="submit" value="리뷰"></input>
 		    </form>
+		    <strong><p>※리뷰 작성을 위해서는 <a href="login.jsp">로그인</a>이 필요합니다.</strong></p>
         </section>
         
         <section>
@@ -98,7 +97,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 방구석 리뷰어. 모든 권리 보유.</p>
+        <p>&copy; 2024 방구석 리뷰. 모든 권리 보유.</p>
         <p>연락처: support@naver.com | 전화: 010-1234-1234</p>
         <p>인천광역시 남동구 경인로 456</p>
     </footer>

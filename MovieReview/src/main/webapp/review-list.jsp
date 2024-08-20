@@ -16,6 +16,9 @@ body {
     margin: 0;
     padding:20px;
 }
+form{
+	margin:10px;
+}
 table{
  	border: 1px solid black;
  	border-collapse: collapse;
@@ -29,17 +32,15 @@ th,td{
 }
 </style>
 </head>
-<body>
-	<header>
+<body>	
 		<a href="main.jsp">
          	<img src="img/home.png" alt="홈 버튼" style="width: 40px; height: 40px">
          </a>
-    </header>
 	<h1>Review List</h1>
 	
 	<form method="get" action="">
         <label>정렬 기준:</label>
-        <select name="sort" id="sort" onchange="this.form.submit()">
+        <select name="sort" id="sort" onchange="this.form.submit()"> <!--드롭다운 메뉴의 선택이 변경되면 현재 폼을 자동으로 제출  -->
         	<option value="normal" <%= "normal".equals(request.getParameter("sort")) ? "selected" : "" %>>----</option>
             <option value="asc" <%= "asc".equals(request.getParameter("sort")) ? "selected" : "" %> >평점 낮은순</option>
             <option value="desc" <%= "desc".equals(request.getParameter("sort")) ? "selected" : "" %> >평점 높은순</option>
@@ -102,7 +103,6 @@ th,td{
 					out.println("SQLException : " + ex.getMessage());
 				}
 			%>
-		
 		</tbody>
 	</table>
 </body>

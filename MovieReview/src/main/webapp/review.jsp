@@ -8,34 +8,25 @@
 <title>movie review</title>
 <style>
     body {
-        font-family: Arial, sans-serif; /* 기본 폰트 설정 */
-        background-color: #f4f4f4; /* 배경색 설정 */
+        background-color: lightcyan; 
         margin: 0;
         padding: 0;
-        color: #333; /* 기본 텍스트 색상 */
     }
-    h1, h2 {
-        color: #444; /* 제목 색상 */
-    }
-    h1 {
+    h1,h2 {
         text-align: center;
         margin-top: 20px;
-    }
-    h2 {
-        margin-top: 20px;
-        text-align: center;
     }
     img {
         display: block;
         max-width: 100%;
         height: auto;
-        margin: 0 auto;
-        border-radius: 8px; /* 둥근 모서리 */
-        box-shadow: 0 0 10px yellow; /* 그림자 효과 */
+        margin: 0 auto; /* 가운데 정렬 */
+        border-radius: 8px; 
+        box-shadow: 0 0 20px yellow; /* 그림자 효과 */
     }
     form {
         max-width: 600px;
-        margin: 20px auto;
+        margin: 20px auto;  
     }
     label {
         display: block;
@@ -45,7 +36,7 @@
         width: 10%;
         padding: 10px;
         border-radius: 5px;
-        border: 1px solid #ccc;
+        border: 1px solid black;
         margin-bottom: 15px;
     }
     textarea {
@@ -53,11 +44,11 @@
         width: 100%;
         padding: 10px;
         border-radius: 5px;
-        border: 1px solid #ccc;
+        border: 1px solid black;
         margin-bottom: 15px;
     }
     button {
-        background-color: Limegreen;
+        background-color: GreenYellow;
         color: black;
         border: none;
         font-weight: bold;
@@ -66,15 +57,19 @@
         display: inline-block;
         font-size: 16px;
         margin-top: 10px;
-        border-radius: 5px; /* 버튼 모서리 둥글게 */
+        border-radius: 5px; 
+        cursor: pointer; /* 커서 포인터 추가 */
     }
     button:hover {
-        background-color: #45a049; /* 버튼 호버 색상 */
+        background-color: #45a049; 
     }
+	.btn{
+		text-align: center;
+	}
 </style>
 </head>
 <body>
-	<div>
+	<div class="top">
 		<a href="main.jsp">
          	<img src="img/home.png" alt="홈 버튼" style="width: 40px; height: 40px">
          </a>
@@ -111,11 +106,14 @@
 			<label>평점(1 to 5)</label>
 			<input type="number" id="rating" name="rating" min="1" max="5" step="0.1" required><br>
 			
-			<label>감상평</label><br>
+			<label>감상평</label>
 			<textarea name="review" id="review" cols="50" rows="5" placeholder="1000자 이내" required></textarea><br>
 			
-			<button type="submit">등록하기</button>
-		</form>
+			<div class="btn">
+				<button type="submit">등록하기</button>
+			</div>
+		</form>	
+			
 		<% 
 				} else {
 				    out.println("영화 정보를 찾을 수 없습니다.");

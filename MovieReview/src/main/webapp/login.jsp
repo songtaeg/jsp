@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
 	body{
-		background-color: skyblue;
+		background-color: LightBlue;
 	}
 	.top{
 		position: absolute;
@@ -24,7 +24,7 @@
          </a>
     </div>    
 	<div class="container">
-	    <h1>Login</h1>
+	    <h1>로그인</h1>
 
 	    <form action="login_result.jsp" method="get">
 	       <div>

@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
 	body{
-		background-color: skyblue;
+		background-color: LightBlue;
 	}
 	div a{
 		position: absolute;
@@ -22,8 +22,9 @@
 	<div>
 		<a href="main.jsp">
          	<img src="img/home.png" alt="홈 버튼" style="width: 40px; height: 40px">
-         </a>
-   </div>     
+        </a>
+   </div>
+        
    <div class="container">
        <h1>회원가입</h1>
         <form action="register_result.jsp" method="get" name="register" onsubmit="return fnCheckForm()">
@@ -50,7 +51,8 @@
 
             <input type="submit" value="회원가입">
         </form>
-    </div>   
+    </div>
+       
 </body>
 </html>
 <script>
