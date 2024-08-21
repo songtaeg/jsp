@@ -16,7 +16,7 @@ jsp 미니프로젝트
 ![JAVASCRIPT](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
-![MYSQL](https://img.shields.io/badge/MySQL-330F63?style=for-the-badge&logo=mysql&logoColor=white)
+![MYSQL](https://img.shields.io/badge/MySQL-4285F4?style=for-the-badge&logo=mysql&logoColor=white)
 
 ---
 🖍 기능
@@ -51,5 +51,9 @@ jsp 미니프로젝트
 8. 프로필
    + 가입했던 이름,이메일
    + 본인이 적었던 리뷰
+---
+데이터베이스(DB)
+[jsp프로젝트db-1.xlsx](https://github.com/user-attachments/files/16685074/jsp.db-1.xlsx)
+
 ---
 📚 소감: 아쉬운 부분이 많았지만 그래도 제 나름대로 열심히 했고 jsp는 처음이어서 잘 모르는 것도 많았지만 그래도 도움을 많이 받았습니다 
